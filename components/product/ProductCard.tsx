@@ -1,16 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Product } from "@prisma/client";
 import { formatPrice } from "@/lib/utils";
 import Badge from "@/components/ui/Badge";
 
-interface ProductCardProps {
-  product: Product & {
-    category: {
-      name: string;
-      slug: string;
-    };
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  grindOptions: string[];
+  tastingNotes: string;
+  origin: string | null;
+  altitude: string | null;
+  process: string | null;
+  body: number;
+  acidity: number;
+  stock: number;
+  category: {
+    name: string;
+    slug: string;
   };
+}
+
+interface ProductCardProps {
+  product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {

@@ -1,12 +1,11 @@
 import Hero from "@/components/Hero";
 import StorySection from "@/components/StorySection";
-import ProductCard from "@/components/product/ProductCard";
+import ProductCard, { Product } from "@/components/product/ProductCard";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
 
 // Datos estáticos para productos destacados
-const featuredProducts = [
+const featuredProducts: Product[] = [
   {
     id: "patagonia-resiliente",
     name: "Patagonia Resiliente",

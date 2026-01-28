@@ -1,28 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import ProductCard from "@/components/product/ProductCard";
+import ProductCard, { Product } from "@/components/product/ProductCard";
 import { cn } from "@/lib/utils";
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  grindOptions: string[];
-  tastingNotes: string;
-  origin: string | null;
-  altitude: string | null;
-  process: string | null;
-  body: number;
-  acidity: number;
-  stock: number;
-  category: {
-    name: string;
-    slug: string;
-  };
-}
 
 interface Category {
   id: string;

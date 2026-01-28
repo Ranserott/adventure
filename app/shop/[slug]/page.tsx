@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
 import { useCart } from "@/components/cart/CartProvider";
@@ -8,29 +9,10 @@ import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { formatPrice } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  grindOptions: string[];
-  tastingNotes: string;
-  origin: string | null;
-  altitude: string | null;
-  process: string | null;
-  body: number;
-  acidity: number;
-  stock: number;
-  category: {
-    name: string;
-    slug: string;
-  };
-}
+import { Product as ProductType } from "@/components/product/ProductCard";
 
 // Datos estáticos de productos (mismos que en shop page)
-const productsData: Record<string, Product> = {
+const productsData: Record<string, ProductType> = {
   "patagonia-resiliente": {
     id: "patagonia-resiliente",
     name: "Patagonia Resiliente",
@@ -439,7 +421,7 @@ export default function ProductDetailPage() {
   const { addItem } = useCart();
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedGrind, setSelectedGr] = useState<string>("Whole Bean");
+  const [selectedGrind, setSelectedGrind] = useState<string>("Whole Bean");
 
   const product = productsData[slug];
 
